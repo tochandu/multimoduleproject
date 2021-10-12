@@ -1,0 +1,5 @@
+description "domain Module"
+dependencies {
+    compile project(":common")
+
+}

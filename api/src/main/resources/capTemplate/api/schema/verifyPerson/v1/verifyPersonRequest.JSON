@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "individualName": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "middleName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      }
+    },
+    "domesticAddress": {
+      "type": "object",
+      "properties": {
+        "streetNumber": {
+          "type": "string",
+          "description": "The street number from the address"
+        },
+        "streetName": {
+          "type": "string",
+          "description": "The street name from the address"
+        },
+        "cityName": {
+          "type": "string",
+          "description": "The city name from the address"
+        },
+        "stateCode": {
+          "type": "string",
+          "description": "The 2 character state code from the address"
+        },
+        "zipCode": {
+          "type": "string",
+          "description": "The zip code from the address is a recommended field for verification"
+        }
+      }
+    },
+    "phoneNumbers": {
+      "type": "array",
+      "id": "phoneNumbers",
+      "items": {
+        "type": "object",
+        "id": "phoneNumbers/0",
+        "properties": {
+          "phoneType": {
+            "type": "string",
+            "id": "phoneNumbers/0/phoneType",
+            "enum": [
+              "HOME",
+              "WORK",
+              "CELL"
+            ],
+            "description": "The Phone type. Expected values from HOME, WORK, CELL"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "id": "phoneNumbers/0/phoneNumber",
+            "description": "The Phone number is a required field for verification"
+          },
+          "phonePreference": {
+            "type": "string",
+            "id": "phoneNumbers/0/phonePreference",
+            "enum": [
+              "PRIMARY",
+              "SECONDARY"
+            ],
+            "description": "The Phone Preference. Expected values from PRIMARY, SECONDARY"
+          }
+        }
+      }
+    },
+    "emailInfo": {
+      "type": "object",
+      "properties": {
+        "emailType": {
+          "type": "string",
+          "enum": [
+            "personal",
+            "official"
+          ],
+          "description": "The email type. Expected values from PERSONAL, OFFICIAL"
+        },
+        "emailAddress": {
+          "type": "string",
+          "description": "The email address"
+        }
+      }
+    }
+  },
+  "required": ["individualName"]
+}

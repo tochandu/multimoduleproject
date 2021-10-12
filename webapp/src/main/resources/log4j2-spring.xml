@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+
+  <Properties>
+    <!-- <Property name="ENTERPRISE_PATTERN">%enterpriseConverter{DT, Level, LogId, TId, ProcId, MsgId,AppId,AppInst,RefMsgNm, ClsName, OpName, SrcApp, SessId, AppBody}</Property> -->
+
+    <Property name="ENTERPRISE_PATTERN">%enterpriseConverter</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT" follow="true">
+      <PatternLayout>
+        <pattern>${ENTERPRISE_PATTERN}</pattern>
+      </PatternLayout>
+    </Console>
+
+    <RollingFile name="File"
+                 filePattern="logs/emsa-main-%d{yyyy-MM-dd}.%i.log">
+
+      <PatternLayout pattern="${ENTERPRISE_PATTERN}"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy/>
+        <SizeBasedTriggeringPolicy size="100 MB"/>
+      </Policies>
+      <EnterpriseDefaultRolloverStrategy max="2000"/>
+    </RollingFile>
+
+  </Appenders>
+
+<Loggers>
+  <!--
+   <Logger name="org.apache.http.conn" level="debug" additivity="false">
+      <appender-ref ref="File" />
+      <appender-ref ref="Console" />
+    </Logger>
+
+    <Logger name="org.apache.http.impl.conn" level="debug" additivity="false">
+      <appender-ref ref="File" />
+      <appender-ref ref="Console" />
+    </Logger>
+
+    <Logger name="org.apache.http.wire" level="debug" additivity="false">
+      <appender-ref ref="File" />
+      <appender-ref ref="Console" />
+    </Logger>
+  -->
+
+    <Logger name="org.springframework.jdbc.core" level="trace" additivity="false">
+      <appender-ref ref="File" />
+      <appender-ref ref="Console" />
+    </Logger>
+
+  <Root level="info">
+    <AppenderRef ref="Console"/>
+    <AppenderRef ref="File"/>
+  </Root>
+
+  </Loggers>
+</Configuration>

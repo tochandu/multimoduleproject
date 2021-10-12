@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "code": {
+            "type": "string"
+        },
+        "subCode": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "WARNING",
+                "ERROR"
+            ]
+        },
+        "message": {
+            "type": "string"
+        }
+    }
+}

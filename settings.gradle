@@ -1,0 +1,18 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+}
+rootProject.name = '#projectName#-main'
+
+include 'app'
+include 'api'
+include 'bdd'
+include 'common'
+include 'domain'
+include 'data'
+include 'webapp'
+project(':webapp').name = '#projectName#'

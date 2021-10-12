@@ -1,0 +1,33 @@
+{
+    "verificationResult": "IDENTITY_VERIFIED",
+    "verificationAction": {
+        "action": "IDENTITY VERIFIED. NO ACTION REQUIRED"
+    },
+    "verificationResultReasons": [
+        {
+            "reasonCode": "MSID01500",
+            "reasonText": "ADDRESS_MATCH",
+            "reasonAdditionalInfo": "43901.11"
+        },
+        {
+            "reasonCode": "MSID01400",
+            "reasonText": "SSN_MATCH",
+            "reasonAdditionalInfo": "43901.10"
+        },
+        {
+            "reasonCode": "MSID01300",
+            "reasonText": "DOB_MATCH",
+            "reasonAdditionalInfo": "43901.9"
+        },
+        {
+            "reasonCode": "MSID01200",
+            "reasonText": "LASTNAME_MATCH",
+            "reasonAdditionalInfo": "43901.8"
+        },
+        {
+            "reasonCode": "MSID01100",
+            "reasonText": "FIRSTNAME_MATCH",
+            "reasonAdditionalInfo": "43901.7"
+        }
+    ]
+}

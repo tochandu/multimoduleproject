@@ -1,0 +1,44 @@
+import java.time.format.DateTimeFormatter
+import java.time.ZonedDateTime
+
+apply plugin: 'org.springframework.boot'
+#projectType
+
+
+description 'Spring boot application'
+
+springBoot {
+    mainClass = 'captemplate.lifecyle.CapTemplateApplication'
+}
+
+bootRun {
+    main = 'captemplate.lifecyle.CapTemplateApplication'
+}
+
+dependencies {
+    compile project(':app')
+    compile project(':api')
+
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+}
+
+task createCheckpointFile {
+    doLast {
+        def checkpoint = "MicroserviceTemplate-${project.version}"
+        println "Checkpoint = ${checkpoint}"
+        def TODAY_DT_US = ZonedDateTime.now().format(DateTimeFormatter.ofPattern("MM-dd-yy hh:mm:ss a z"))
+        String fileContent = "BUILD_CHECKPOINT: ${checkpoint}\nBUILD TSTAMP: ${TODAY_DT_US} \nBUILD_DTR: ${projectDir}"
+        new File("${buildDir}/captemplate.checkpoint").write(fileContent)
+    }
+}
+
+jar {
+    from file("${buildDir}/springbootmicroservicetemplate.checkpoint")
+    manifest {
+        attributes("Implementation-Title": "MicroserviceTemplate",
+            "Implementation-Version": "${project.version}")
+    }
+}
+
+jar.dependsOn createCheckpointFile

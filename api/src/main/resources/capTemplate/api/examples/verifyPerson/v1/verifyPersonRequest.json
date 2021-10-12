@@ -1,0 +1,30 @@
+{
+  "individualName": {
+    "firstName": "John",
+    "middleName": "M",
+    "lastName": "Doe"
+  },
+  "domesticAddress": {
+    "streetNumber": "101",
+    "streetName": "Times Square",
+    "cityName": "Manhatton",
+    "stateCode": "NY",
+    "zipCode": "10101"
+  },
+  "dob": "1990-01-05",
+  "phoneNumbers": [ {
+    "phoneType":"CELL",
+    "phoneNumber": "9999999999",
+    "phonePreference": "PRIMARY"
+  },
+    {
+      "phoneType":"CELL",
+      "phoneNumber": "8888888888",
+      "phonePreference": "SECONDARY"
+    }
+  ],
+  "emailInfo": {
+    "emailType":"personal",
+    "emailAddress": "verifyPerson@capgeminitemplate.com"
+  }
+}

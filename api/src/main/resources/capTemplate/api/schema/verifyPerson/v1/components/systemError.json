@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "creatorApplicationId": {
+            "type": "string"
+        },
+        "code": {
+            "type": "string"
+        },
+        "subCode": {
+            "type": "string"
+        },
+        "message": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,8 @@
+description " [describe me] "
+
+dependencies {
+    compile project(":api")
+    compile project(":common")
+    compile project(":domain")
+    compile project(':data')
+}

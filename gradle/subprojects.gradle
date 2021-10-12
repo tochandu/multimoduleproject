@@ -1,0 +1,42 @@
+subprojects {
+    apply plugin: 'java'
+    apply plugin: "io.spring.dependency-management"
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencyManagement{
+        imports {
+            mavenBom 'io.spring.platform:platform-bom:Athens-SR2'
+        }
+    }
+        dependencies {
+            implementation 'commons-io:commons-io:2.8.0'
+            compile('org.springframework.boot:spring-boot-starter-web')
+            ###
+
+        }
+
+
+    jar {
+        manifest {
+            attributes("Implementation-Title": "MicroserviceTemplate",
+                    "Implementation-Version": "${project.version}")
+        }
+    }
+
+    tasks.addRule("Pattern: listPaths<ConfigurationName>: Prints files in the specified classpath/confoguration.") {
+        String taskName ->
+            if(taskName.startsWith("listPaths")){
+                task(taskName){
+                    doLast {
+                        def config = taskName.replace("listPaths", "")
+                        config = config.replaceFirst(config[0], config[0].toLowerCase())
+                        project.configurations[config].collect{it.toURI()}.sort().each{println it}
+                    }
+                }
+            }
+    }
+}

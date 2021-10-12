@@ -1,0 +1,45 @@
+#%RAML 1.0
+title: Identity Verification
+
+mediaType: application/json
+documentation:
+  - title: Identity verification
+    content: |
+      Identity Verification service cater to various clients when requested to provide verification for individual profiles -
+protocols: [HTTPS]
+types:
+  verifyPersonRequest: !include schema/springTemplate/v1/verifyPersonRequest.json
+  verifyPersonResponse: !include schema/springTemplate/v1/verifyPersonResponse.json
+
+
+/springTemplate/v1:
+  displayName: Verify Person
+  post:
+    body:
+      schema: verifyPersonRequest
+      example: !include examples/springTemplate/v1/verifyPersonRequest.json
+    responses:
+      200:
+        body:
+          schema: verifyPersonResponse
+          example: !include examples/springTemplate/v1/verifyPersonResponse.json
+      207:
+        body:
+          schema: verifyPersonResponse
+      400:
+        body:
+          schema: verifyPersonResponse
+      404:
+        body:
+          schema: verifyPersonResponse
+      500:
+        body:
+          schema: verifyPersonResponse
+      501:
+        body:
+          schema: verifyPersonResponse
+      503:
+        body:
+          schema: verifyPersonResponse
+    description: >
+      This operation would return the verification results

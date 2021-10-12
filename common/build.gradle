@@ -1,0 +1,5 @@
+description "Utility Module"
+
+dependencies {
+    compile project(":api")
+}

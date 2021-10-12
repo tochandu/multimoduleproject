@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "string",
+      "enum": [
+        "APPROVED",
+        "NOT_APPROVED"
+      ]
+    },
+    "systemError": {
+      "type": "array",
+      "id": "systemErrors",
+      "items": {
+        "$ref": "components/systemError.json"
+      }
+    },
+    "systemWarning": {
+      "type": "array",
+      "id": "systemWarnings",
+      "items": {
+        "$ref": "components/systemWarning.json"
+      }
+    }
+  }
+}
